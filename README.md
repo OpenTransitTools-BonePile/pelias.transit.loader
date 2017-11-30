@@ -1,6 +1,29 @@
 # pelias.transit.loader
 Load transit landmarks, stops and street intersections into the Pelias geocoder.
 
+## Notes on the data
+
+1. the 'id' element contains the GTFS stop id and agency id (stop_id::agency_id::layer_name),
+so that you could link to another endpoint (e.g., https://trimet.org/ride/stop.html?id=4452)
+
+    ```json
+    properties": {
+        "id": "4452::TRIMET::stops",
+        "gid": "transit:stops:4452::TRIMET::stops",
+        "layer": "stops",
+        "source": "transit",
+        "name": "SW Pine & 2nd (TriMet Stop ID 4452)",
+        ...
+        "locality": "Sherwood",
+        "label": "SW Pine & 2nd (TriMet Stop ID 4452), Sherwood, OR, USA"
+    }
+    ```
+
+1. ...
+
+
+## Install and Running
+
 #### Setup empty ES index via MapZen's pelias/schema project
 ```javascript
 cd /srv/pelias_loader/projects/schema
